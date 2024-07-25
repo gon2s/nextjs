@@ -63,7 +63,7 @@ const Navigator = () => {
       <section className={"px-4 cursor-pointer"}>
         <div
           className={
-            "w-full flex flex-row gap-[6px] justify-center items-center bg-neutral-700 my-6 rounded-3xl p-4 hover:bg-neutral-600"
+            "w-full flex flex-row gap-[6px] justify-center items-center bg-neutral-800 my-6 rounded-3xl p-4 hover:bg-neutral-700"
           }
         >
           <FiPlus size={24} />
