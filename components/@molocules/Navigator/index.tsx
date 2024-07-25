@@ -4,7 +4,9 @@ import { usePathname } from "next/navigation";
 import React, { ReactElement, useMemo } from "react";
 import { GoHome } from "react-icons/go";
 import { FiPlus, FiMusic, FiCompass } from "react-icons/fi";
+import { FaPlayCircle } from "react-icons/fa";
 import Link from "next/link";
+import { dummyPlaylistArray } from "@/lib/dummyData";
 
 interface RouterPath {
   id: number;
@@ -59,16 +61,40 @@ const Navigator = () => {
           </Link>
         ))}
       </section>
+
       <div className={"w-full h-[1px] bg-neutral-700"} />
+
       <section className={"px-4 cursor-pointer"}>
         <div
           className={
-            "w-full flex flex-row gap-[6px] justify-center items-center bg-neutral-800 my-6 rounded-3xl p-4 hover:bg-neutral-700"
+            "w-full flex flex-row gap-[6px] justify-center items-center bg-neutral-800 my-6 rounded-3xl p-2 hover:bg-neutral-700"
           }
         >
           <FiPlus size={24} />
-          <span className={`text-[20px]`}>새 재생목록</span>
+          <span className={`text-[18px]`}>새 재생목록</span>
         </div>
+      </section>
+
+      <section className={"px-4"}>
+        {dummyPlaylistArray.map((list) => (
+          <li
+            onClick={() => {}}
+            className={
+              "flex flex-row items-center cursor-pointer gap-[2px] p-[8px] rounded-xl hover:bg-neutral-700 h-[56px] group"
+            }
+            key={list.id}
+          >
+            <div className={"flex flex-col flex-1"}>
+              <span className={"line-clamp-1"}>{list.playlistName}</span>
+              <span className={"text-neutral-500 line-clamp-1"}>
+                {list.owner}
+              </span>
+            </div>
+            <div className={"opacity-0 group-hover:opacity-100"}>
+              <FaPlayCircle size={28} />
+            </div>
+          </li>
+        ))}
       </section>
     </div>
   );
